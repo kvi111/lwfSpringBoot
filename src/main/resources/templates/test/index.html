@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
     <title>index</title>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!--<script src="https://unpkg.com/vue"></script>-->
+    <script src="/js/vue.min.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>-->
     <script src="http://cdn.bootcss.com/vue-resource/1.0.3/vue-resource.js"></script>
+
 </head>
 <body>
 <div id="demo">
@@ -25,11 +28,11 @@
                 {{x.userEmail}}
             </td>
             <td>
-                <input type="button" v-on:click="DeleteUser(x)" value="删除" />
+                <input type="button" v-on:click="DeleteUser(x)" value="删除"/>
             </td>
         </tr>
     </table>
-    <form name="myForm">
+    <form id="myForm" name="myForm">
         <table>
             <tr>
                 <td style="width: 50px;">姓名:</td>
@@ -46,12 +49,13 @@
             <tr>
                 <td style="width: 50px;">邮件:</td>
                 <td>
-                    <input type="number" v-model="newUser.userEmail"/>
+                    <input type="text" v-model="newUser.userEmail"/>
                 </td>
             </tr>
             <tr>
                 <td colspan="2" style="text-align: right;">
-                    <input type="button" v-on:click="addUser()" value="添加" />
+                    <input type="button" v-on:click="addUser()" value="添加"/>
+                    <input type="reset" style="display: none" id="val1"/>
                 </td>
             </tr>
         </table>
@@ -63,39 +67,38 @@
         el: "#demo",
         data: {
             userList: [],
-            newUser: { userName: '', userPhone: '', userEmail: '' }
+            newUser: {userName: '', userPhone: '', userEmail: ''}
         },
         methods: {
             GetAllUser: function () {
-                //var _self = this;
-                this.userList = [];
+                var _self = this;
+                _self.userList = [];
                 Vue.http.get("/test/getall").then(function (res) {
                     for (var i = 0; i < res.body.length; i++) {
-                        this.userList.push(res.body[i]);
+                        _self.userList.push(res.body[i]);
                     }
                 });
             },
             DeleteUser: function (user) {
                 var _self = this;
-                Vue.http.post("/Test/deluser", { name: user.userName }).then(function (res) {
+                Vue.http.post("/test/deluser", {userName: user.userName}).then(function (res) {
                     if (res.body.Code == 1) {
                         _self.GetAllUser();
                     }
                     else {
-                        alert(response.body.Msg);
+                        alert(res.body.Msg);
                     }
                 });
             },
             addUser: function () {
-                alert(this.newUser.userName);
-                //var _self = this;
-                Vue.http.post("/test/adduser", this.newUser).then(function (res) {
-                    alert(res);
+                var _self = this;
+                Vue.http.post("/test/adduser", _self.newUser).then(function (res) {
                     if (res.body.Code == 1) {
-                        this.GetAllUser();
+                        _self.GetAllUser();
+                        myForm.reset();
                     }
                     else {
-                        alert(response.body.Msg);
+                        alert(res.body.Msg);
                     }
                 });
                 return false;
