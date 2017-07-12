@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>用户信息列表</title>
+</head>
+<body>
+<!--<c:if test="${!empty userList}">-->
+    <!--<c:forEach var="user" items="${userList}">-->
+        <!--姓名：${user.userName} &nbsp;&nbsp;手机号：${user.userPhone} &nbsp;&nbsp;邮箱：${user.userEmail} &nbsp;&nbsp;<br>-->
+    <!--</c:forEach>-->
+<!--</c:if>-->
+<table width="100%" border="0" cellspacing="1" cellpadding="0">
+    <tr>
+        <td>姓名</td>
+        <td>手机号</td>
+        <td>邮箱</td>
+        <td>日期</td>
+    </tr>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.userName}"></td>
+        <td th:text="${user.userPhone}"></td>
+        <td><a th:href="${user.userEmail}" target="_blank">点我</a></td>
+        <td th:text="${#dates.format(user.createTime, 'dd/MMM/yyyy HH:mm')}"></td>
+    </tr>
+</table>
+
+<a href="comments.html"
+   th:href="@{/product/comments/prodId=${userList.size().toString()}}"
+   th:if="${userList.size()>0}">view</a>
+</body>
+
+<div th:switch="${userList.size()}">
+    <p th:case="1">userList Size is 1</p>
+    <p th:case="2">userList Size is 2</p>
+    <p th:case="3">userList Size is 3</p>
+</div>
+</html>

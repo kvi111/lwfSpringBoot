@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>test1</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="http://cdn.bootcss.com/vue-resource/1.0.3/vue-resource.js"></script>
+</head>
+<body>
+<div>
+    <div id="app">
+        <p>
+            {{ message }}
+        </p>
+        <input v-model="message"/>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data: {
+                message:'Hello Vue!'
+            }
+        })
+    </script>
+</div>
+</body>
+</html>

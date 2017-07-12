@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/mvc">
+<head>
+    <meta charset="UTF-8"/>
+    <title>index</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="http://cdn.bootcss.com/vue-resource/1.0.3/vue-resource.js"></script>
+</head>
+<body>
+<div id="demo">
+    <table border="0">
+        <tr class="textCenter">
+            <td style="width: 100px;">姓名</td>
+            <td style="width: 60px;">电话</td>
+            <td style="width: 200px;">邮件</td>
+        </tr>
+        <tr v-for="x in userList">
+            <td>
+                {{x.userName}}
+            </td>
+            <td>
+                {{x.userPhone}}
+            </td>
+            <td>
+                {{x.userEmail}}
+            </td>
+            <td>
+                <input type="button" v-on:click="DeleteUser(x)" value="删除" />
+            </td>
+        </tr>
+    </table>
+    <form name="myForm">
+        <table>
+            <tr>
+                <td style="width: 50px;">姓名:</td>
+                <td>
+                    <input type="text" v-model="newUser.userName"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50px;">电话:</td>
+                <td>
+                    <input type="number" v-model="newUser.userPhone"/>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50px;">邮件:</td>
+                <td>
+                    <input type="number" v-model="newUser.userEmail"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: right;">
+                    <input type="button" v-on:click="addUser()" value="添加" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    var vm = new Vue({
+        el: "#demo",
+        data: {
+            userList: [],
+            newUser: { userName: '', userPhone: '', userEmail: '' }
+        },
+        methods: {
+            GetAllUser: function () {
+                //var _self = this;
+                this.userList = [];
+                Vue.http.get("/test/getall").then(function (res) {
+                    for (var i = 0; i < res.body.length; i++) {
+                        this.userList.push(res.body[i]);
+                    }
+                });
+            },
+            DeleteUser: function (user) {
+                var _self = this;
+                Vue.http.post("/Test/deluser", { name: user.userName }).then(function (res) {
+                    if (res.body.Code == 1) {
+                        _self.GetAllUser();
+                    }
+                    else {
+                        alert(response.body.Msg);
+                    }
+                });
+            },
+            addUser: function () {
+                alert(this.newUser.userName);
+                //var _self = this;
+                Vue.http.post("/test/adduser", this.newUser).then(function (res) {
+                    alert(res);
+                    if (res.body.Code == 1) {
+                        this.GetAllUser();
+                    }
+                    else {
+                        alert(response.body.Msg);
+                    }
+                });
+                return false;
+            }
+        }
+    });
+    vm.GetAllUser();
+
+    document.writeln(new Date().getMilliseconds());
+    /*]]>*/
+</script>
+</body>
+</html>
