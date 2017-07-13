@@ -26,9 +26,9 @@ public class TestController {
 
     @RequestMapping
     public ModelAndView index() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("/test/index");
-        return mv;
+        Map<String,Object> data = new HashMap<String,Object>();
+        data.put("intYear",2017);
+        return new ModelAndView("/test/index",data);
     }
 
     @ResponseBody
