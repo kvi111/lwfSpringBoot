@@ -5678,3 +5678,47 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving template "/test
 2017-07-13 18:26:39.943  INFO 9760 --- [pool-1-thread-1] com.lwf.springboot.utils.SchedulerTask   : ����ʱ�䣺18:26:39
 2017-07-13 18:26:42.646  INFO 9760 --- [Thread-5] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@69663380: startup date [Thu Jul 13 18:24:26 CST 2017]; root of context hierarchy
 2017-07-13 18:26:42.654  INFO 9760 --- [Thread-5] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2017-07-13 18:34:20.164  INFO 7728 --- [main] com.lwf.springboot.LwfSpringBoot         : Starting LwfSpringBoot on DESKTOP-33DBI2N with PID 7728 (D:\IdeaProjects\lwfSpringBoot\target\classes started by lwf in D:\IdeaProjects\lwfSpringBoot)
+2017-07-13 18:34:20.168  INFO 7728 --- [main] com.lwf.springboot.LwfSpringBoot         : No active profile set, falling back to default profiles: default
+2017-07-13 18:34:20.668  INFO 7728 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@729d991e: startup date [Thu Jul 13 18:34:20 CST 2017]; root of context hierarchy
+2017-07-13 18:34:22.063  INFO 7728 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2017-07-13 18:34:23.141  INFO 7728 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8081 (http)
+2017-07-13 18:34:23.152  INFO 7728 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-07-13 18:34:23.152  INFO 7728 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.15
+2017-07-13 18:34:23.285  INFO 7728 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-07-13 18:34:23.285  INFO 7728 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2621 ms
+2017-07-13 18:34:23.457  INFO 7728 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-07-13 18:34:23.465  INFO 7728 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-07-13 18:34:23.465  INFO 7728 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-07-13 18:34:23.465  INFO 7728 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-07-13 18:34:23.465  INFO 7728 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-07-13 18:34:24.360  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@729d991e: startup date [Thu Jul 13 18:34:20 CST 2017]; root of context hierarchy
+2017-07-13 18:34:24.434  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public java.lang.String com.lwf.springboot.controller.ErrorController.index()
+2017-07-13 18:34:24.434  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public org.springframework.web.servlet.ModelAndView com.lwf.springboot.controller.TestController.index()
+2017-07-13 18:34:24.434  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test/getall]}" onto public java.util.List<com.lwf.springboot.model.User> com.lwf.springboot.controller.TestController.GetAll()
+2017-07-13 18:34:24.438  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test/adduser]}" onto public java.util.Map com.lwf.springboot.controller.TestController.AddUser(com.lwf.springboot.model.User,javax.servlet.http.HttpServletResponse)
+2017-07-13 18:34:24.438  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test/deluser]}" onto public java.util.Map com.lwf.springboot.controller.TestController.DelUser(com.lwf.springboot.model.User,javax.servlet.http.HttpServletResponse)
+2017-07-13 18:34:24.438  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test/test1]}" onto public org.springframework.web.servlet.ModelAndView com.lwf.springboot.controller.TestController.test1()
+2017-07-13 18:34:24.442  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/anonymous]}" onto public java.lang.String com.lwf.springboot.controller.UserController.anonymous(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2017-07-13 18:34:24.442  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/json]}" onto public java.util.List<com.lwf.springboot.model.User> com.lwf.springboot.controller.UserController.json(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2017-07-13 18:34:24.442  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/login]}" onto public java.lang.String com.lwf.springboot.controller.UserController.login(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2017-07-13 18:34:24.442  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/user/showUser]}" onto public java.lang.String com.lwf.springboot.controller.UserController.showUser(javax.servlet.http.HttpServletRequest,org.springframework.ui.Model)
+2017-07-13 18:34:24.442  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-07-13 18:34:24.446  INFO 7728 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-07-13 18:34:24.465  INFO 7728 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/toLogin] onto handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2017-07-13 18:34:24.481  INFO 7728 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/my/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-13 18:34:24.481  INFO 7728 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-13 18:34:24.481  INFO 7728 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-13 18:34:24.512  INFO 7728 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in globalExceptionHandler
+2017-07-13 18:34:24.535  INFO 7728 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-07-13 18:34:25.458  INFO 7728 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-07-13 18:34:25.478  INFO 7728 --- [main] s.a.ScheduledAnnotationBeanPostProcessor : No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2017-07-13 18:34:25.486  INFO 7728 --- [pool-1-thread-1] com.lwf.springboot.utils.SchedulerTask   : 现在时间：18:34:25
+2017-07-13 18:34:25.677  INFO 7728 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8081 (http)
+2017-07-13 18:34:25.689  INFO 7728 --- [main] com.lwf.springboot.LwfSpringBoot         : Started LwfSpringBoot in 6.002 seconds (JVM running for 6.821)
+2017-07-13 18:34:31.489  INFO 7728 --- [pool-1-thread-1] com.lwf.springboot.utils.SchedulerTask   : 现在时间：18:34:31
+2017-07-13 18:34:37.486  INFO 7728 --- [pool-1-thread-1] com.lwf.springboot.utils.SchedulerTask   : 现在时间：18:34:37
+2017-07-13 18:34:39.679  INFO 7728 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-07-13 18:34:39.680  INFO 7728 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-07-13 18:34:39.707  INFO 7728 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms
+2017-07-13 18:34:43.501  INFO 7728 --- [pool-1-thread-1] com.lwf.springboot.utils.SchedulerTask   : 现在时间：18:34:43
