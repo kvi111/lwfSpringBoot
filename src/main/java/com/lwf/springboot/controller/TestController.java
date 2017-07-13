@@ -18,7 +18,7 @@ import java.util.Map;
  */
 
 @Controller
-@RequestMapping("/test")
+@RequestMapping("test")
 public class TestController {
     public static List<User> users = new ArrayList<User>();
 
@@ -26,17 +26,17 @@ public class TestController {
     public ModelAndView index() {
         Map<String,Object> data = new HashMap<String,Object>();
         data.put("intYear",2017);
-        return new ModelAndView("/test/index",data);
+        return new ModelAndView("test/index",data);
     }
 
     @ResponseBody
-    @RequestMapping("/getall")
+    @RequestMapping("getall")
     public List<User> GetAll() {
         return users;
     }
 
     @ResponseBody
-    @RequestMapping("/adduser")
+    @RequestMapping("adduser")
     public Map AddUser(@RequestBody User user, HttpServletResponse response) {  //,
         Map<String, Object> resultMap = new HashMap<String, Object>();
 
@@ -52,7 +52,7 @@ public class TestController {
     }
 
     @ResponseBody
-    @RequestMapping("/deluser")
+    @RequestMapping("deluser")
     public Map DelUser(@RequestBody User user, HttpServletResponse response) {
         Map<String, Object> resultMap = new HashMap<String, Object>();
 
@@ -67,10 +67,10 @@ public class TestController {
         return resultMap;
     }
 
-    @RequestMapping("/test1")
+    @RequestMapping("test1")
     public ModelAndView test1() {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("/test/test1");
+        mv.setViewName("test/test1");
         return mv;
     }
 }

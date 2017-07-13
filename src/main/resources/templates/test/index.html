@@ -9,7 +9,7 @@
     <!--<script src="/js/vue-resource@1.3.4.js"></script>-->
 </head>
 <body>
-<div th:include="/test/temp::#head"></div>
+<div th:include="test/temp::#head"></div>
 
 <div id="demo">
     <table border="0">
@@ -116,6 +116,6 @@
     /*]]>*/
 </script>
 <!--<div th:text="${intYear}"></div>-->
-<div th:include="/test/temp::footer(${intYear})"></div>
+<div th:include="test/temp::footer(${intYear})"></div>
 </body>
 </html>

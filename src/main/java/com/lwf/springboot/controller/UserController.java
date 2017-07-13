@@ -18,14 +18,14 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
 
     private Logger log = LoggerFactory.getLogger(UserController.class);
     @Resource
     private UserService userService;
 
-    @RequestMapping("/showUser")
+    @RequestMapping("showUser")
     public String showUser(HttpServletRequest request, Model model){
         //log.info("查询所有用户信息");
         List<User> userList = userService.getAllUser();
@@ -33,12 +33,12 @@ public class UserController {
         return "showUser";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("login")
     public String login(HttpServletRequest request, Model model){
         return "login";
     }
 
-    @RequestMapping("/anonymous")
+    @RequestMapping("anonymous")
     public String anonymous(HttpServletRequest request, Model model){
         //测试全局异常
         int errInt = 100 / 0;
@@ -46,7 +46,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping("/json")
+    @RequestMapping("json")
     public List<User> json(HttpServletRequest request, Model model){
         //测试全局异常
         int[] intArr = {};
