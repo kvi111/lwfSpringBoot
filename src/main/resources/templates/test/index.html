@@ -97,15 +97,18 @@
                     alert('姓名不能为空！');
                     return;
                 }
+                //document.getElementById("val1").click();
                 Vue.http.post("/test/adduser", _self.newUser).then(function (res) {
                     if (res.body.Code == 1) {
                         _self.GetAllUser();
-                        myForm.reset();
                     }
                     else {
                         alert(res.body.Msg);
                     }
                 });
+                _self.newUser.userName="";
+                _self.newUser.userPhone="";
+                _self.newUser.userEmail="";
                 return false;
             }
         }
