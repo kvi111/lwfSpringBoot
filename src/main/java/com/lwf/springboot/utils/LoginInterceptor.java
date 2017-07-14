@@ -22,10 +22,10 @@ public class LoginInterceptor implements HandlerInterceptor {
                            ModelAndView modelAndView) throws Exception {
         switch (response.getStatus()){
             case 404:
-                modelAndView.setViewName("/error/404");
+                modelAndView.setViewName("error/404");
                 break;
             case 500:
-                modelAndView.setViewName("/error/500");
+                modelAndView.setViewName("error/500");
                 break;
         }
     }
@@ -42,7 +42,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             if(loginUser != null){
                 //无session则是未登录状态
                 System.out.println(">>>未登录，请重新登录<<<");
-                response.sendRedirect("/user/login");
+                response.sendRedirect("user/login");
                 return false;
             }
         }
