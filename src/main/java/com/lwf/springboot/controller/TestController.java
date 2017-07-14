@@ -73,4 +73,22 @@ public class TestController {
         mv.setViewName("test/test1");
         return mv;
     }
+
+    @RequestMapping("if1")
+    public ModelAndView if1() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("test/if1");
+        return mv;
+    }
+
+    /**
+     * asdf
+     * @return 111
+     */
+    @RequestMapping("for1")
+    public ModelAndView for1() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("test/for1");
+        return mv;
+    }
 }
